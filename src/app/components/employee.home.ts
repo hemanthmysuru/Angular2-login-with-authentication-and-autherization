@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudManager } from './../services/crud.manager';
+import { LoginManager } from './../services/login.manager';
 
 @Component({
-    template: '<h1>Employee Home Page</h1>',
+    templateUrl: './../templates/employee.home.html'
 })
 export class EmployeeHomeComponent implements OnInit {
-    constructor(private crud: CrudManager) {
+    constructor(private crud: CrudManager, private loginManager: LoginManager) {
+    }
+
+    logout() {
+        this.loginManager.logout();
     }
 
     ngOnInit() {
-        // this.crud.getAllData().subscribe(
-        //     res => console.log(res)
-        // );
     }
 }
